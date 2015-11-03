@@ -215,9 +215,9 @@ Map.prototype.toString = ->
   return this.txtMap
 
 generateMaze = (width, height) ->
-  map = new Map(width, height);
-  map.generate();
-  txtMap = map.toString();
+  map = new Map(width, height)
+  map.generate()
+  txtMap = map.toString()
   console.log 'Entrance', map.entrance
 
   entranceStar = { x: 2 * map.entrance.x + 1, y: 0}
@@ -236,6 +236,4 @@ generateMaze = (width, height) ->
     map: txtMap
   }
 
-width = Math.floor(this.window.innerWidth / 2 / Constant.SQUARE) - 1
-height = Math.floor(this.window.innerHeight / 2 / Constant.SQUARE) - 1
-this.maze = generateMaze(width, height)
+this.window.generateMaze = generateMaze

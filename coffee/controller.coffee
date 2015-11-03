@@ -35,7 +35,7 @@ MazeController.prototype.run = ->
 		if !this.algorithm.isDone()
 			this.algorithm.step()
 
-			window.setTimeout (-> controller.run()), this.speed
+			window.mazeTimeout = window.setTimeout (-> controller.run()), this.speed
 		else
 			# Clear map so we can draw the solution path.
 			this.walker.maze.draw(true)
