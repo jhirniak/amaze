@@ -1,0 +1,21 @@
+#!/bin/bash
+# Output from genffcom for screencast#=1
+
+printf "Click OK when ready to start recording.
+
+To Stop Recording:
+Click the stop icon in the Notification Area" \
+| yad ---text-info --on-top --center --width=440 --height=280 --wrap --title="Get Ready" --window-icon="/usr/bin/record1".png --text="\
+<b>SILENTCAST 1                </b><span font='24' color='green'>1</span>"
+(($? != 0)) && exit 1 #Cancel was clicked
+
+avconv -f x11grab -s 1920x1039 -r .1 -i :0.0+0,0 -c:v ffvhuff -an -y /home/ravanave/cast/silentcast/temp.mkv & ffmpegPID=$!
+if [ "$XDG_CURRENT_DESKTOP" = "Unity" -o "$XDG_CURRENT_DESKTOP" = "Pantheon"  ]
+then
+        echo "Unity or Pantheon detected, switching indicators..."
+	python /usr/share/silentcast/unity_indicator.py 1
+else
+    yad --notification --image="/usr/share/silentcast/stop1.png" --text="1"
+fi
+kill $ffmpegPID
+wait # make sure avconv is killed before exit or else can get stuck here
