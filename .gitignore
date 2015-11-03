@@ -46,3 +46,7 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
+
+# Ignore idea prebuild files
+coffee/*js
+coffee/*js.map
