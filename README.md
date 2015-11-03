@@ -2,6 +2,8 @@
 
 # *A*Maze
 
+## [Open Demo](http://jhirniak.github.io/amaze)
+
 ![Maze Solving](doc/anim.gif)
 
 * Recursive backtracker (so-called perfect maze creation algorithm) maze generator based on the `window.innerWidth` and `window.innerHeight`.
