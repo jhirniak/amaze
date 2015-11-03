@@ -38,9 +38,11 @@ MazeController.prototype.run = ->
 			window.mazeTimeout = window.setTimeout (-> controller.run()), this.speed
 		else
 			# Clear map so we can draw the solution path.
-			this.walker.maze.draw(true)
+      this.walker.maze.draw(true)
 
 			# Draw the solution path.
-			this.algorithm.solve()
+      this.algorithm.solve()
+
+      window.setTimeout (-> window.resetMaze() ), Constant.NEW_MAZE_TIMEOUT
 
 this.window.MazeController = MazeController

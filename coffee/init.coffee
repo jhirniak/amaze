@@ -20,3 +20,5 @@ $(document).ready( ->
 $(window).resize( ->
   reset()
 )
+
+window.resetMaze = reset

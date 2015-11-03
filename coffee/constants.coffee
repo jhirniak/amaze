@@ -8,6 +8,7 @@ Constant = ->
   this.TO_FLIP = 5 # how many moves before flip of cursor color
   this.FLIP_COLORS = ['rgb(173,255,47)', 'rgb(255,47,173)']
   this.SQUARE = 12 # size of square in px
-  this.SPEED = 40
+  this.SPEED = 40 # ms (square progression rate)
+  this.NEW_MAZE_TIMEOUT = 10000 # ms
 
 this.window.Constant = new Constant()
